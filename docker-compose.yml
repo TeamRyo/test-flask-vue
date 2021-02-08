@@ -1,0 +1,25 @@
+version: '3'
+services: 
+  web:
+    build: ./backend
+    volumes:
+      - .:/app
+    ports:
+      - "5000:5000"
+    tty: true
+    environment: 
+      TZ: Asia/Tokyo
+
+  redis:
+    image: "redis:latest"
+
+  caddy:
+    image: caddy:alpine
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./contents :/contents
+    ports:
+      - "80:80"
+      - "443:443/tcp"
+      - "443:443/udp"
+
