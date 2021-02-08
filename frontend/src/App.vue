@@ -31,7 +31,8 @@
 
 </script>
 
-<style>
+
+<style lang="scss">
 h1{
     background-color: #007bff;
     color: white;
